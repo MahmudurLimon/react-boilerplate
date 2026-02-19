@@ -1,6 +1,41 @@
+import { useState,useEffect } from "react";
+import User from "./User.jsx";
+
 function App() {
+    const [count, setCount] = useState(5);
+    const [time, setTime] = useState(0)
+    
+    useEffect(() => {
+        const interval = setInterval(() => {
+            setTime(t => t + 1);
+        }, 1000);
+
+        return () => clearInterval(interval);
+    },[]);
+
     return(
-        <h1>Hello World!</h1>
+        <>
+            <section>
+                <h1>Hello World!</h1>
+                <h2>Props Example</h2>
+
+                <User name="Limon" age={25} />
+                <User name="Tarunya" age={39} />
+            </section>
+
+            <section>
+                <h1>Counter: {count}</h1>
+
+                <button onClick={() => setCount(count+1)}>Increase</button>
+                <button onClick={() => setCount(count-1)}>Decrease</button>
+            </section>
+
+            <section>
+                <h2>Seconds: {time}</h2>
+            </section>
+            
+        </>
+
     );
 };
 

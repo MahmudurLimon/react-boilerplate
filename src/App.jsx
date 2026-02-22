@@ -1,5 +1,7 @@
 import { useState,useEffect } from "react";
 import User from "./User.jsx";
+import UserAPI from "./UserAPI.jsx";
+import UserAPI2 from "./UserAPI2.jsx";
 
 function App() {
     const [count, setCount] = useState(5);
@@ -32,6 +34,11 @@ function App() {
 
             <section>
                 <h2>Seconds: {time}</h2>
+            </section>
+
+            <section>
+                <UserAPI />
+                <UserAPI2 />
             </section>
             
         </>
